@@ -383,10 +383,9 @@ h2.form-title { /* Ceci est le style pour le titre du formulaire si c'est un h2 
 /* Styles spécifiques au composant RegisterDevice (écrasent les styles génériques si nécessaire) */
 .register-device-container {
     display: flex;
-    /* Changed to row to align form and status side-by-side as in the image */
     flex-direction: row; 
-    align-items: stretch; /* Stretch items to fill height */
-    justify-content: center; /* Center the main content block */
+    align-items: stretch;
+    justify-content: center;
     padding: 20px;
     font-family: 'Arial', sans-serif;
     background-color: #f0f2f5;
@@ -395,24 +394,21 @@ h2.form-title { /* Ceci est le style pour le titre du formulaire si c'est un h2 
 }
 
 /* Conteneur principal du formulaire et du statut */
-/* Ce sélecteur cible le div interne qui contient les deux sections (formulaire et statut) */
-.register-device-container > div:first-of-type { /* This selector needs to be removed from the HTML */
-    /* These styles should be on the .register-device-container itself */
+.register-device-container > div:first-of-type { 
     width: 100%;
     max-width: 1000px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    /* Removed display: flex and flex-direction: row from here as it's now on .register-device-container */
 }
 
 /* Section du formulaire */
 .register-form-section {
-    flex: 2; /* Prend 2/3 de l'espace disponible */
+    flex: 2;
     padding: 30px;
-    border-right: 1px solid #eee; /* Séparateur visuel */
-    background-color: #fff; /* Ensure it's white */
+    border-right: 1px solid #eee;
+    background-color: #fff;
 }
 
 /* Titre du formulaire (h1) */
@@ -434,14 +430,16 @@ h2.form-title { /* Ceci est le style pour le titre du formulaire si c'est un h2 
 .device-form label {
     font-weight: bold;
     margin-bottom: 5px;
-    color: #555;
+    color: black; /* Labels en noir */
     display: block;
     margin-top: 0;
 }
 
 /* Champs de saisie du formulaire */
 .device-form input[type="text"],
-.device-form input[type="number"] {
+.device-form input[type="number"],
+/* Ajout du sélecteur pour le champ select */
+.device-form select { 
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -450,7 +448,6 @@ h2.form-title { /* Ceci est le style pour le titre du formulaire si c'est un h2 
     box-sizing: border-box;
     margin-top: 0;
     margin-bottom: 0;
-    /* Styles ajoutés pour fond blanc et écriture noire */
     background-color: white; /* Fond blanc */
     color: black; /* Écriture noire */
 }
@@ -466,6 +463,8 @@ h2.form-title { /* Ceci est le style pour le titre du formulaire si c'est un h2 
     cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s ease;
+    width: 100%; /* S'assurer qu'il prend toute la largeur disponible dans le formulaire */
+    max-width: 320px; /* Limiter la largeur comme les inputs si vous le souhaitez, ou ajuster */
 }
 
 .submit-btn:hover {
@@ -491,56 +490,55 @@ h2.form-title { /* Ceci est le style pour le titre du formulaire si c'est un h2 
 /* Bouton "Retour au tableau de bord" */
 .back-btn {
     margin-top: 30px;
-    padding: 12px 20px;
-    background-color: blue;
+    padding: 12px 20px; /* Même padding que submit-btn pour taille similaire */
+    background-color: #e53e3e; /* Rouge */
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1.1em;
+    font-size: 1.1em; /* Même taille de police que submit-btn */
     cursor: pointer;
-    display: block; 
-    max-width : 250px; 
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%; /* Prend toute la largeur disponible */
     transition: background-color 0.3s ease;
+    /* Pour aligner la largeur avec le bouton submit-btn dans la section de droite */
+    max-width: 320px; /* Limiter la largeur comme les inputs si vous le souhaitez, ou ajuster */
 }
 
 .back-btn:hover {
-    background-color: red; /* Rouge plus foncé au survol */
+    background-color: #c53030; /* Rouge plus foncé au survol */
 }
 
 /* Section du statut de connexion */
 .register-status-section {
-    flex: 1; /* Prend 1/3 de l'espace disponible */
+    flex: 1;
     padding: 30px;
     background-color: #3182ce; /* Fond bleu comme demandé */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre verticalement le contenu */
-    align-items: center; /* Centre horizontalement le contenu */
-    color: white; /* Texte blanc pour contraster avec le fond sombre */
-    position: relative; /* Pour positionner le bouton de retour si nécessaire */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
 }
 
 /* Carte de statut */
 .status-card {
-    background-color: transparent; /* Rendre le fond transparent pour que le bleu de la section soit visible */
-    padding: 0; /* Supprimer le padding si le fond est transparent */
-    box-shadow: none; /* Supprimer l'ombre */
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
     width: 100%;
     text-align: center;
-    color: white; /* S'assurer que le texte est blanc */
+    color: white;
 }
 
 .status-card h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: white; /* Titre en blanc */
+    color: white;
 }
 
 .status-card p {
     margin-bottom: 10px;
-    color: white; /* Texte en blanc */
+    color: white;
     word-break: break-all;
 }
 
@@ -584,9 +582,25 @@ h2.form-title { /* Ceci est le style pour le titre du formulaire si c'est un h2 
   color: #2d3748;
 }
 
+/* Styles pour les labels */
+label {
+    color: black; /* Définit la couleur du texte des labels en noir */
+}
 
-.buy-button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: blue;
+/* Styles pour les champs de saisie de texte et les listes déroulantes */
+/* Styles pour les labels (si vous voulez qu'ils soient en noir) */
+label {
+    color: black;
+}
+
+/* Styles pour les champs de saisie de texte et les listes déroulantes */
+input[type="text"],
+select {
+    background-color: white;
+    color: black;
+    padding: 0.75rem; /* Correspond au p-3 de Tailwind (12px) */
+    border-width: 1px; /* Correspond au border de Tailwind */
+    border-color: #d1d5db; /* Correspond au border-gray-300 de Tailwind */
+    border-radius: 0.5rem; /* Correspond au rounded-lg de Tailwind (8px) */
+    /* Les styles focus et ring ne peuvent pas être facilement reproduits en CSS pur sans cibler des pseudo-classes spécifiques */
 }

@@ -139,6 +139,7 @@ import ConnectWallet from './ConnectWallet';
 import Dashboard from './Dashboard';
 import RegisterDevice from './RegisterDevice';
 import Marketplace from './Marketplace';
+import PublishData from './PublishData';
 import './App.css';
 
 const App = () => {
@@ -176,16 +177,23 @@ const App = () => {
   // Register Device → Dashboard
   const handleBackToDashboard = () => setPage("dashboard");
 
+  const handleGoToPublishData = () => setPage("publishData");
+
+
   return (
     <>
       {page === "home" && <HomePage onGetStarted={handleGetStarted} />}
       {page === "connect" && <ConnectWallet onConnected={handleWalletConnected} />}
+      {page === "publishData" && (
+        <PublishData account={currentAccount} onBack={handleBackToDashboard} />
+      )}
       {page === "dashboard" && (
         <Dashboard
           account={currentAccount}
           onLogout={handleLogout}
           onRegisterDevice={handleRegisterDevice}
           onGoToMarketplace={handleGoToMarketplace}
+          onGoToPublishData={handleGoToPublishData}
         />
       )}
       {page === "registerDevice" && (
