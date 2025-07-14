@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-const Dashboard = ({ account, onLogout, onRegisterDevice }) => {
+const Dashboard = ({ account, onLogout, onRegisterDevice, onGoToMarketplace }) => {
   return (
     <div className="dashboard-container">
       {/* Header */}
@@ -31,7 +31,7 @@ const Dashboard = ({ account, onLogout, onRegisterDevice }) => {
             <p>Send data from a registered device to the marketplace</p>
           </div>
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"  onClick={onGoToMarketplace}>
             <span className="dashboard-icon" role="img" aria-label="Marketplace">🛒</span>
             <h2>Marketplace</h2>
             <p>Explore and trade available IoT data</p>
